@@ -1,7 +1,5 @@
 <?php
 
-namespace StaticFactory;
-
 /**
  * Note1: Remember, static means global state which is evil because it can't be mocked for tests
  * Note2: Cannot be subclassed or mock-upped or have multiple different instances.

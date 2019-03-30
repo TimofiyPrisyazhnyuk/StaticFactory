@@ -1,22 +1,27 @@
 <?php
 
-namespace StaticFactory\Tests;
+namespace Tests;
 
-use StaticFactory\StaticFactory;
+use StaticFactory;
 
-require __DIR__ . "/../Formatter.php";
-foreach (glob("*.php") as $filename) {
-    if (file_exists($file = __DIR__ . '/../' . $filename)) {
-        require_once $file;
-    }
-}
+spl_autoload_register(function ($class) {
+    include __DIR__ . '/../' . $class . '.php';
+});
 
+/**
+ * Class StaticFactoryTest
+ * @package Tests
+ */
 class StaticFactoryTest
 {
+    /**
+     * Test Static factory
+     */
     public function test()
     {
         var_dump(StaticFactory::factory('number'),StaticFactory::factory('string'));
     }
 }
 
+// Run test.
 (new StaticFactoryTest())->test();
